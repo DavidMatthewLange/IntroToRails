@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get "people", to: "star_wars#people"
-  get "planets", to: "star_wars#planets"
-  get "species", to: "star_wars#species"
-  root "star_wars#people"
+  get "people", to: "star_wars_data#people"
+  get "planets", to: "star_wars_data#planets"
+  get "species", to: "star_wars_data#species"
+  root "star_wars_data#people"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
