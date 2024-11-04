@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Name:     David Lange
+* Project:  Intro to Rails
+* Created:  2024-11-03
+* Edited:   2024-11-04
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Using the SWAPI (Star Wars API), this project utilizes the /people, /planets, and /species endpoints, associating them together.
