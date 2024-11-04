@@ -1,0 +1,8 @@
+<h1>Star Wars Characters</h1>
+<ul>
+  <% @people.each do |person| %>
+  <li><%= person["name"] %> - <%= person["gender"] %></li>
+  <% end %>
+</ul>
+<%= link_to 'View Planets', planets_path %><br>
+<%= link_to 'View Species', species_path %>
