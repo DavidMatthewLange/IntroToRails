@@ -1,13 +1,13 @@
 <h1>Star Wars</h1>
 <h2>People</h2>
-<ul>
+<ul style="list-style-type: none">
   <% @people.each do |person| %>
   <li>
     <strong><%= person["name"] %></strong>
     </li>
     <p>
-      <%= person["birth_year"] %><br>
-      <%= person["gender"] %><br>
+      Birth Year: <%= person["birth_year"] %><br>
+      Gender: <%= person["gender"] %><br>
     </p>
   <% end %>
 </ul>

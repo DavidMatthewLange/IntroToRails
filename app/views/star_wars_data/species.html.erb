@@ -1,13 +1,13 @@
 <h1>Star Wars</h1>
 <h2>Species</h2>
-<ul>
+<ul style="list-style-type: none">
   <% @species.each do |specie| %>
   <b><li><%= specie["name"] %></li></b>
-  <ul>
-    <li>Classification: <%= specie["classification"] %></li><br>
-    <li>Designation: <%= specie["designation"] %></li><br>
-    <li>Language: <%= specie["language"] %></li>
-  </ul>
+  <p>
+    Classification: <%= specie["classification"] %><br>
+    Designation: <%= specie["designation"] %><br>
+    Language: <%= specie["language"] %><br>
+  </p>
   <% end %>
 </ul>
 <%= link_to 'People', people_path %><br>
