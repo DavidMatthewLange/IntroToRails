@@ -1,6 +1,6 @@
 require "httparty"
 
-class PlanetsFetch
+class PlanetsFetcher
   include HTTParty
   base_uri "https://swapi.dev/api"
 

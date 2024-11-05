@@ -1,6 +1,6 @@
 require "httparty"
 
-class PeopleFetch
+class PeopleFetcher
   include HTTParty
   base_uri "https://swapi.dev/api"
 

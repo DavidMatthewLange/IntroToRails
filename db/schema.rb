@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_05_045849) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_05_062903) do
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.integer "birth_year"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_05_045849) do
     t.datetime "updated_at", null: false
     t.integer "planet_id", null: false
     t.integer "species_id", null: false
+    t.string "api_id"
     t.index ["planet_id"], name: "index_people_on_planet_id"
     t.index ["species_id"], name: "index_people_on_species_id"
   end
@@ -32,6 +33,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_05_045849) do
     t.integer "population"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_id"
   end
 
   create_table "species", force: :cascade do |t|
@@ -41,6 +43,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_05_045849) do
     t.string "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_id"
   end
 
   add_foreign_key "people", "planets"
