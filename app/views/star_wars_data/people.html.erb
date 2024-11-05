@@ -2,7 +2,9 @@
 <h2>People</h2>
 <ul>
   <% @people.each do |person| %>
-  <li><%= person["name"] %></li>
+  <li>
+    <%= link_to person["name"], star_wars_data_path(person) %>
+    </li>
   <% end %>
 </ul>
 <%= link_to 'Planets', planets_path %><br>

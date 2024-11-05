@@ -1,0 +1,10 @@
+<h1><%= @person.name %></h1>
+
+<p>
+  <strong>Birth Year</strong> <%= @person.birth_year %><br>
+  <strong>Gender</strong> <%= @person.gender %><br>
+  <strong>Homeworld</strong> <%= @person.homeworld_id %><br>
+  <strong>Species</strong> <%= @person.species_id %><br>
+</p>
+
+<%= link_to 'Back to All Characters', star_wars_data_path %>
