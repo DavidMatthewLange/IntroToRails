@@ -2,27 +2,37 @@ require "httparty"
 
 class PeopleFetcher
   include HTTParty
-  base_uri "https://swapi.dev/api"
+  BASE_URL =  "https://swapi.dev/api/people/"
 
   def self.fetch_all
-    page = 1
-    loop do
-      response = get("/people?page=#{page}")
-      data = response.parsed_response
+    all_people = []
+    next_url = BASE_URL
 
-      data["results"].each do |person_data|
-        Person.find_or_initialize_by(api_id: person_data["url"]).tap do |person|
-          person.name = person_data["name"]
-          person.birth_year = person_data["birth_year"]
-          person.gender = person_data["gender"]
-          person.homeworld = person_data["homeworld"]
-          person.species = person_data["species"]
-          person.save!
-        end
-      end
-
-      break unless data["next"]
-      page += 1
+    while next_url do
+      response = HTTParty.get(next_url)
+      all_people.concat(response.parsed_response["results"])
+      next_url = response.parsed_response["next"]
     end
+
+    all_people do |person_data|
+      species_url = person_data["species"].first
+      species_name = fetch_species_name(species_url) if species_url
+
+      species = Species.find_or_create_by(name: species_name) if species_name
+
+      Person.create(
+        name: person_data["name"],
+        birth_year: person_data["birth_year"],
+        gender: person_data["gender"],
+        homeworld: person_data["homeworld"],
+        species: species
+      )
+    end
+  end
+  def self.fetch_species_name(url)
+    response = HTTParty.get(url)
+    response.parsed_response["name"] if response.success?
+  rescue
+    nil
   end
 end
