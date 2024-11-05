@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_04_061615) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_05_045849) do
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.integer "birth_year"
@@ -19,6 +19,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_04_061615) do
     t.integer "species"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "planet_id", null: false
+    t.integer "species_id", null: false
+    t.index ["planet_id"], name: "index_people_on_planet_id"
+    t.index ["species_id"], name: "index_people_on_species_id"
   end
 
   create_table "planets", force: :cascade do |t|
@@ -38,4 +42,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_04_061615) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "people", "planets"
+  add_foreign_key "people", "species"
 end
