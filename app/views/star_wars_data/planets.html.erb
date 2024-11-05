@@ -1,0 +1,9 @@
+<h1>Star Wars</h1>
+<h2>Planets</h2>
+<ul>
+  <% @planets.each do |planet| %>
+  <li><%= planet["name"] %></li>
+  <% end %>
+</ul>
+<%= link_to 'People', people_path %><br>
+<%= link_to 'Species', species_path %>

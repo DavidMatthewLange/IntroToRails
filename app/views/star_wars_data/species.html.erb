@@ -1,0 +1,9 @@
+<h1>Star Wars</h1>
+<h2>Species</h2>
+<ul>
+  <% @species.each do |specie| %>
+  <li><%= specie["name"] %></li>
+  <% end %>
+</ul>
+<%= link_to 'People', people_path %><br>
+<%= link_to 'Planets', planets_path %>
