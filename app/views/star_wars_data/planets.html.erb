@@ -2,7 +2,12 @@
 <h2>Planets</h2>
 <ul>
   <% @planets.each do |planet| %>
-  <li><%= planet["name"] %></li>
+  <b><li><%= planet["name"] %></li></b>
+  <p>
+    <%= planet["climate"] %><br>
+    <%= planet["terrain"] %><br>
+    <%= planet["population"] %><br>
+  </p>
   <% end %>
 </ul>
 <%= link_to 'People', people_path %><br>
