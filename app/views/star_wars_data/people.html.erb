@@ -3,8 +3,12 @@
 <ul>
   <% @people.each do |person| %>
   <li>
-    <%= link_to person["name"], star_wars_data_path(person) %>
+    <strong><%= person["name"] %></strong>
     </li>
+    <p>
+      <%= person["birth_year"] %><br>
+      <%= person["gender"] %><br>
+    </p>
   <% end %>
 </ul>
 <%= link_to 'Planets', planets_path %><br>
