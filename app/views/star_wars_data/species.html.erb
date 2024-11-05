@@ -2,7 +2,12 @@
 <h2>Species</h2>
 <ul>
   <% @species.each do |specie| %>
-  <li><%= specie["name"] %></li>
+  <b><li><%= specie["name"] %></li></b>
+  <ul>
+    <li>Classification: <%= specie["classification"] %></li><br>
+    <li>Designation: <%= specie["designation"] %></li><br>
+    <li>Language: <%= specie["language"] %></li>
+  </ul>
   <% end %>
 </ul>
 <%= link_to 'People', people_path %><br>
